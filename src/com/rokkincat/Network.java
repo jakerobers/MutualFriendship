@@ -16,8 +16,8 @@ public class Network {
 		this.node_count = Integer.parseInt(st.nextToken()); 
 		this.edge_count = Integer.parseInt(st.nextToken());
 		this.adjacency_list = new boolean[this.node_count][this.node_count];
-
 		Person[] network = new Person[node_count];
+
 		for (int i = 0; i < edge_count; i++) {
 			st = new StringTokenizer(br.readLine());
 			int a_id = Integer.parseInt(st.nextToken());
@@ -39,6 +39,4 @@ public class Network {
 		
 		this.network = network;
 	}
-	
-	
 }

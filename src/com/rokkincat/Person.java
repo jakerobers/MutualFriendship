@@ -21,7 +21,7 @@ public class Person {
 	public TreeMap<Integer, Integer> countMutuals(Network n) {
 		this.num_of_mutuals = 0;
 		Person[] network = n.network;
-		boolean[][] adjacency_list = n.adjacency_list;
+		boolean[][] adjacency_matrix = n.adjacency_matrix;
 
 		Queue<Integer> q = new LinkedList<Integer>();
 		TreeMap<Integer, Integer> mutual_count = new TreeMap<Integer, Integer>();
@@ -33,7 +33,7 @@ public class Person {
 		while (!q.isEmpty()) {
 			Person current = network[q.poll()];
 			for (int i = 0; i < current.friend_count; i++) {
-				if (current.friends_list[i] != this.id && !adjacency_list[this.id][current.friends_list[i]]) {
+				if (current.friends_list[i] != this.id && !adjacency_matrix[this.id][current.friends_list[i]]) {
 					if (!mutual_count.containsKey(current.friends_list[i])) {
 						mutual_count.put(current.friends_list[i], 1);
 						this.num_of_mutuals++;
